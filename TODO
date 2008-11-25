@@ -1,0 +1,9 @@
+CodeRing
+
+Future
++ Add a decoder screen!  Basically an assistant worksheet and calculator for decrypting the text based on letter frequency ananalysis.
+ + Text boxes for coded text, plain text and a dictionary.
+ + Show frequency of each scrambled letter in the decoded text.
+ + Show frequency of each real letter in the dictionary text.
+ + Allow individually assigning real letters to scrambled letters.
+

@@ -1,0 +1,290 @@
+{
+  "a": {
+    "color": [255, 0, 0],
+    "file": "images/a.jpg",
+    "description": "American Alligator (Alligator Mississippiensis)",
+    "author": "Gmunson",
+    "license": "cc-by-sa-2.5",
+    "url": "http://commons.wikimedia.org/wiki/Image:American_Alligator_(Alligator_Mississippiensis).jpg"
+  },
+  "b": {
+    "color": [0, 0, 255],
+    "file": "images/b.jpg",
+    "description": "Bumblebee",
+    "author": "Kabir Bakie",
+    "license": "cc-by-sa-2.5",
+    "url": "http://commons.wikimedia.org/wiki/Image:Bumblebee.jpg"
+  },
+  "c": {
+    "color": [191, 255, 0],
+    "file": "images/c.jpg",
+    "description": "Camel face",
+    "author": "Sartaj beary",
+    "license": "PD",
+    "url": "http://commons.wikimedia.org/wiki/Image:Camel_face.jpg"
+  },
+  "d": {
+    "color": [255, 165, 0],
+    "file": "images/d.jpg",
+    "description": "A photo of 12 Original Glazed doughnuts from Krispy Kreme",
+    "author": "Unisouth",
+    "license": "GFDL|cc-by-3.0",
+    "url": "http://commons.wikimedia.org/wiki/Image:Krispy_Kreme_Dozen_Doughnuts_2.jpg"
+  },
+  "e": {
+    "color": [255, 255, 0],
+    "file": "images/e.jpg",
+    "description": "Elephant picture taken near Ndutu Lodge",
+    "author": "nickandmel2006",
+    "license": "cc-by-sa-2.0",
+    "url": "http://www.flickr.com/photos/nickandmel/419810995/in/set-72157600005104260/"
+  },
+  "f": {
+    "color": [0, 255, 255],
+    "file": "images/f.jpg",
+    "description": "Feathers of a Blue Peafowl (Pavo cristatus)",
+    "author": "Jörg Hempel",
+    "license": "cc-by-sa-2.0-de",
+    "url": "http://commons.wikimedia.org/wiki/Image:Pavo_cristatus_feather_LC0026.jpg"
+  },
+  "g": {
+    "color": [0, 255, 0],
+    "file": "images/g.jpg",
+    "description": "Preferring woody and weedy species, goats select the young growing points first as they browse downward from the upper parts of a plant",
+    "author": "Scott Bauer (ARS Photo Library Number K8595-9)",
+    "license": "PD",
+    "url": "http://commons.wikimedia.org/wiki/Image:Goat_eating_leeves.jpg"
+  },
+  "h": {
+    "color": [165, 42, 42],
+    "file": "images/h.jpg",
+    "description": "Grey dun Icelandic horse (mare)",
+    "author": "Paula Jantunen",
+    "license": "PD",
+    "url": "http://commons.wikimedia.org/wiki/Image:Grey_dun_icelandic_horse.JPG"
+  },
+  "i": {
+    "color": [255, 192, 203],
+    "file": "images/i.jpg",
+    "description": "Blue flag (Iris versicolor)",
+    "author": "Danielle Langlois",
+    "license": "cc-by-sa-2.5",
+    "url": "http://commons.wikimedia.org/wiki/Image:Iris_versicolor_1.jpg"
+  },
+  "j": {
+    "color": [255, 0, 255],
+    "file": "images/j.jpg",
+    "description": "Sea Nettle (Chrysaora quinquecirrha) Jellyfish in captivity in the Monterey Bay Aquarium",
+    "author": "Mila Zinkova",
+    "license": "GFDL|cc-by-sa-2.5,2.0,1.0",
+    "url": "http://commons.wikimedia.org/wiki/Image:Jellyfish_aqurium.jpg"
+  },
+  "k": {
+    "color": [255, 0, 255],
+    "file": "images/k.jpg",
+    "description": "Tree Kangaroo",
+    "author": "Timmy Toucan",
+    "license": "GFDL|cc-by-sa-2.5,2.0,1.0",
+    "url": "http://www.flickr.com/photos/timmythesuk/202658559/"
+  },
+  "l": {
+    "color": [255, 0, 0],
+    "file": "images/l.jpg",
+    "description": "Lovely lion pair",
+    "author": "Miroslav Duchacek (from Czech Republic)",
+    "license": "GFDL",
+    "url": "http://commons.wikimedia.org/wiki/Image:Lion_pair.jpg"
+  },
+  "m": {
+    "color": [0, 0, 255],
+    "file": "images/m.jpg",
+    "description": "A small mouse (unknown species) eating at an oak leaf",
+    "author": "Jens Buurgaard Nielsen",
+    "license": "GFDL|cc-by-sa-2.5,2.0,1.0",
+    "url": "http://commons.wikimedia.org/wiki/Image:Mouse_eating_leaf.JPG"
+  },
+  "n": {
+    "color": [0, 0, 255],
+    "file": "images/n.jpg",
+    "description": "Blue Nile Falls",
+    "author": "Giustino",
+    "license": "cc-by-2.5",
+    "url": "http://www.flickr.com/photos/giustino/38843207/in/set-864469/"
+  },
+  "o": {
+    "color": [255, 165, 0],
+    "file": "images/o.jpg",
+    "description": "This male Ostrich Struthio camelus is on a farm in Wellington, New Zealand",
+    "author": "Tony Wills",
+    "license": "GFDL|cc-by-2.5",
+    "url": "http://commons.wikimedia.org/wiki/Image:Farmed_Ostrich-2c.jpg"
+  },
+  "p": {
+    "color": [255, 192, 203],
+    "file": "images/p.jpg",
+    "description": "Macro pinecone",
+    "author": "Arjun",
+    "license": "PD",
+    "url": "http://commons.wikimedia.org/wiki/Image:Macro_pinecone.jpg"
+  },
+  "q": {
+    "color": [0, 255, 255],
+    "file": "images/q.jpg",
+    "description": "Chess queen",
+    "author": "che (production: Nolanus, lighting assistance: Danny B.)",
+    "license": "cc-by-sa-2.5",
+    "url": "http://commons.wikimedia.org/wiki/Image:Chess_queen_0964.jpg"
+  },
+  "r": {
+    "color": [255, 0, 0],
+    "file": "images/r.jpg",
+    "description": "White rhinoceros in wild",
+    "author": "Miroslav Duchacek (from Czech Republic)",
+    "license": "GFDL",
+    "url": "http://commons.wikimedia.org/wiki/Image:White_rhinoceros.jpg"
+  },
+  "s": {
+    "color": [0, 255, 0],
+    "file": "images/s.jpg",
+    "description": "I purchased this glass bottle of Sprite in Bagdhad in August, 2006",
+    "author": "Simon Morrison",
+    "license": "cc-by-sa-2.5",
+    "url": "http://commons.wikimedia.org/wiki/Image:SpriteIraqi.jpg"
+  },
+  "t": {
+    "color": [0, 0, 0],
+    "file": "images/t.jpg",
+    "description": "Turtles from North-West of Costa Rica",
+    "author": "Flicka",
+    "license": "GFDL|cc-by-sa-2.5,2.0,1.0",
+    "url": "http://commons.wikimedia.org/wiki/Image:Turtles_Costa_Rica.jpg"
+  },
+  "u": {
+    "color": [128, 128, 128],
+    "file": "images/u.jpg",
+    "description": "Yellow beach umbrella in the summer sun",
+    "author": "Molku",
+    "license": "PD",
+    "url": "http://commons.wikimedia.org/wiki/Image:Yellow_umbrella.jpg"
+  },
+  "v": {
+    "color": [255, 0, 255],
+    "file": "images/v.jpg",
+    "description": "The image of the Spanish Stradivarius II of ca. 1687",
+    "author": "Håkan Svensson (Xauxa)",
+    "license": "GFDL",
+    "url": "http://commons.wikimedia.org/wiki/Image:PalacioReal_Stradivarius1.jpg"
+  },
+  "w": {
+    "color": [0, 0, 255],
+    "file": "images/w.jpg",
+    "description": "Hamam Hammam",
+    "author": "Nevit Dilmen",
+    "license": "GFDL",
+    "url": "http://commons.wikimedia.org/wiki/Image:Hamam_dsc05370_nevit.jpg"
+  },
+  "x": {
+    "color": [255, 0, 255],
+    "file": "images/x.jpg",
+    "description": "Fennec Fox @ Africa Alive, Lowestoft",
+    "author": "Tim Parkinson",
+    "license": "cc-by-2.0",
+    "url": "http://www.flickr.com/photos/43632116@N00/461626192/"
+  },
+  "y": {
+    "color": [255, 255, 0],
+    "file": "images/y.jpg",
+    "description": "Yak (Bos grunniens) at Dingboche (Nepal)",
+    "author": "Uwe Gille",
+    "license": "cc-by-sa-3.0",
+    "url": "http://commons.wikimedia.org/wiki/Image:Yak_at_Dingboche_(Nepal).jpg"
+  },
+  "z": {
+    "color": [255, 255, 0],
+    "file": "images/z.jpg",
+    "description": "Three zebras drinking",
+    "author": "John Storr",
+    "license": "PD",
+    "url": "http://commons.wikimedia.org/wiki/Image:Three_Zebras_Drinking.jpg"
+  },
+  "0": {
+    "color": [0, 0, 0],
+    "file": "images/0.jpg",
+    "description": "CG of Lotus effect",
+    "author": "William Thielicke",
+    "license": "GFDL|cc-by-sa-2.5,2.0,1.0",
+    "url": "http://wthielicke.gmxhome.de/bionik/indexuk.htm"
+  },
+  "1": {
+    "color": [255, 0, 0],
+    "file": "images/1.jpg",
+    "description": "Gullfoss, Iceland",
+    "author": "Simon Cole",
+    "license": "GFDL|cc-by-3.0",
+    "url": "http://en.wikipedia.org/wiki/Image:Gullfoss-Iceland-20050724.jpg"
+  },
+  "2": {
+    "color": [255, 165, 0],
+    "file": "images/2.jpg",
+    "description": "Two Sisters (1901)",
+    "author": "William-Adolphe Bouguereau",
+    "license": "PD",
+    "url": "http://commons.wikimedia.org/wiki/Image:William-Adolphe_Bouguereau_(1825-1905)_-_Two_Sisters_(1901).jpg"
+  },
+  "3": {
+    "color": [255, 255, 0],
+    "file": "images/3.jpg",
+    "description": "Three giraffes standing behind a tree",
+    "author": "Miroslav Duchacek (from Czech Republic)",
+    "license": "GFDL",
+    "url": "http://commons.wikimedia.org/wiki/Image:Giraffe_three_behind_tree.jpg"
+  },
+  "4": {
+    "color": [255, 255, 0],
+    "file": "images/4.jpg",
+    "description": "Four leaves of Lauraceae",
+    "author": "B.navez",
+    "license": "GFDL|cc-by-sa-3.0,2.5,2.0,1.0",
+    "url": "http://commons.wikimedia.org/wiki/Image:Four_leaves_of_Lauraceae.JPG"
+  },
+  "5": {
+    "color": [0, 0, 255],
+    "file": "images/5.jpg",
+    "description": "5つ葉のクローバー",
+    "author": "本人",
+    "license": "GFDL",
+    "url": "http://commons.wikimedia.org/wiki/Image:Five_leaf_clover.jpg"
+  },
+  "6": {
+    "color": [128, 0, 128],
+    "file": "images/6.jpg",
+    "description": "Collage of six mustard-related pictures",
+    "author": "Rainer Zenz",
+    "license": "GFDL|cc-by-sa-2.5,2.0,1.0",
+    "url": "http://commons.wikimedia.org/wiki/Image:Senf-Variationen.jpg"
+  },
+  "7": {
+    "color": [255, 0, 255],
+    "file": "images/7.jpg",
+    "description": "Septem artes liberales from 'Hortus deliciarum'",
+    "author": "Herrad von Landsberg",
+    "license": "PD",
+    "url": "http://commons.wikimedia.org/wiki/Image:Septem-artes-liberales_Herrad-von-Landsberg_Hortus-deliciarum_1180.jpg"
+  },
+  "8": {
+    "color": [128, 128, 128],
+    "file": "images/8.jpg",
+    "description": "Eight varieties of pears from U.S. markets",
+    "author": "Agyle",
+    "license": "PD",
+    "url": "http://upload.wikimedia.org/wikipedia/commons/f/fc/Eight_varieties_of_pears.jpg"
+  },
+  "9": {
+    "color": [0, 0, 0],
+    "file": "images/9.jpg",
+    "description": "Mute Swan (Cygnus olor) with nine cygnets",
+    "author": "S Sepp",
+    "license": "GFDL|cc-by-sa-2.5,2.0,1.0",
+    "url": "http://commons.wikimedia.org/wiki/Image:Swan_with_nine_cygnets_3.jpg"
+  }
+}
