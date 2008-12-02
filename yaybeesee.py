@@ -80,6 +80,9 @@ class YayBeeSee(sugar.activity.activity.Activity):
         # Set up the 'Ken Burns' effect.
         self.reset_zoom()
 
+        # Default to fullscreen mode.
+        self.fullscreen()
+
         # Set up the idle timer.
         gobject.idle_add(self.idle_cb)
 
@@ -95,10 +98,16 @@ class YayBeeSee(sugar.activity.activity.Activity):
             if not key_info.has_key('data'): 
                 bundle = sugar.activity.activity.get_bundle_path()
                 filename = os.path.join(bundle, key_info['file'])
+
+                print 'Loading ' + filename
+
                 fd = open(filename, 'r')
                 key_info['data'] = fd.read()
 
+                self.area.queue_draw()
+
                 all_loaded = False
+                break
 
         if all_loaded:
             self.all_loaded = True
@@ -122,14 +131,15 @@ class YayBeeSee(sugar.activity.activity.Activity):
             self.key = key
             self.key_info = self.index[self.key]
             
-            # Destroy any existing pixbuf.
-            if self.pixbuf:
-                self.pixbuf = None
-                gc.collect()
-
+            # Decompress the JPEG data in-memory.
             loader = gtk.gdk.PixbufLoader()
             loader.write(self.key_info['data'])
+            loader.close()
+
             self.pixbuf = loader.get_pixbuf()
+
+            loader = None
+            gc.collect()
 
             self.reset_zoom()
 
@@ -203,26 +213,43 @@ class YayBeeSee(sugar.activity.activity.Activity):
             
             x_bearing, y_bearing, width, height = cr.text_extents(text)[:4]
 
+            cr.rectangle(30, bounds.height-60, width+20, height+20)
             cr.set_source_rgba(0.3, 0.3, 0.3, 0.7)
-            cr.rectangle(10, bounds.height - 60 + y_bearing, width+20, height+20)
             cr.fill_preserve()
             cr.set_source_rgba(1, 1, 1, 0.7)
             cr.stroke()
             
             cr.set_source_rgb(0.7, 0.7, 0.7)
-            cr.move_to(20, bounds.height - 50)
+            cr.move_to(40, bounds.height-50 - y_bearing)
             cr.show_text(text)
 
         else:
 
+            loaded_count = 0
+            total_count = 0
+            for key in self.index: 
+                if self.index[key].has_key('data'):
+                    loaded_count += 1
+                total_count += 1
+
+            loaded_ratio = float(loaded_count) / float(total_count)
+
+            # Draw loading bar.
+            cr.rectangle(bounds.width-30, bounds.height-60, -int((bounds.width-140) * loaded_ratio), 40)
+            cr.set_source_rgb(0.4, 0.4, 0.8)
+            cr.fill_preserve()
+            cr.set_source_rgb(0.6, 0.6, 0.9)
+            cr.stroke()
+
             # Draw help text.
             text = _('Welcome! Press any letter or number.')
-            
-            cr.set_source_rgb(1, 1, 1)
+              
+            help_alpha = max(0, min(1, (loaded_ratio-0.8)/0.2))
+            cr.set_source_rgba(1, 1, 1, help_alpha)
             
             cr.set_font_size(20)
             x_bearing, y_bearing, width, height = cr.text_extents(text)[:4]
             
-            cr.move_to(bounds.width - width - 30 - x_bearing, bounds.height - 300 - y_bearing)
+            cr.move_to(bounds.width-40 - width - x_bearing, bounds.height-50 - y_bearing)
             cr.show_text(text)
-            
+           
