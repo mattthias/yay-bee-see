@@ -4,6 +4,9 @@ COPYING
 TODO
 setup.py
 yaybeesee.py
+po/Yay!BeeSee.pot
+images/LICENSE
+images/fdl-1.2.txt
 images/INDEX.en_US
 images/u.jpg
 images/2.jpg
@@ -15,7 +18,6 @@ images/7.jpg
 images/0.jpg
 images/c.jpg
 images/1.jpg
-images/fdl-1.2.txt
 images/3.jpg
 images/6.jpg
 images/r.jpg
@@ -42,4 +44,3 @@ images/s.jpg
 images/e.jpg
 images/g.jpg
 images/p.jpg
-po/Yay!BeeSee.pot
