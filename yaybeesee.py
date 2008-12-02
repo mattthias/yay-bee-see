@@ -17,7 +17,7 @@
 """YayBeeSee - Simple letter game."""
 
 # Import standard Python modules.
-import logging, os, json, locale, random
+import logging, os, json, locale, random, gc
 from gettext import gettext as _
 
 # Import PyGTK.
@@ -45,6 +45,7 @@ class YayBeeSee(sugar.activity.activity.Activity):
         
         self.key = None
         self.key_info = None
+        self.all_loaded = False
         self.pixbuf = None
         
         # Create the toolbar.
@@ -76,14 +77,52 @@ class YayBeeSee(sugar.activity.activity.Activity):
         self.add_events(gtk.gdk.KEY_PRESS_MASK)
         self.connect('key-press-event', self.key_press_cb)
 
-        # Set up the 'Ken Burns' timer.
+        # Set up the 'Ken Burns' effect.
         self.reset_zoom()
-        #gobject.idle_add(self.idle_cb)
 
+        # Default to fullscreen mode.
+        self.fullscreen()
+
+        # Set up the idle timer.
+        gobject.idle_add(self.idle_cb)
+
+    def idle_cb(self):
+        # Apply the 'Ken Burns' effect (disabled due to Cairo performance).
+        #self.play_zoom()
+
+        # Make progress on loading.
+        all_loaded = True 
+        for key in self.index:
+            key_info = self.index[key]
+
+            if not key_info.has_key('data'): 
+                bundle = sugar.activity.activity.get_bundle_path()
+                filename = os.path.join(bundle, key_info['file'])
+
+                print 'Loading ' + filename
+
+                fd = open(filename, 'r')
+                key_info['data'] = fd.read()
+
+                self.area.queue_draw()
+
+                all_loaded = False
+                break
+
+        if all_loaded:
+            self.all_loaded = True
+
+        # Keep tracking idle events until all images are loaded.
+        return not self.all_loaded 
+    
     def fullscreen_cb(self, widget):
         self.fullscreen()
 
     def key_press_cb(self, widget, event):
+        # Ignore keypresses until the images are loaded. 
+        if not self.all_loaded:
+            return True
+
         # Get the letter corresponding to the keypress.
         key = event.string.lower()
         
@@ -92,11 +131,17 @@ class YayBeeSee(sugar.activity.activity.Activity):
             self.key = key
             self.key_info = self.index[self.key]
             
-            bundle = sugar.activity.activity.get_bundle_path()
-            filename = os.path.join(bundle, self.key_info['file'])
-            self.pixbuf = gtk.gdk.pixbuf_new_from_file(filename)
+            # Decompress the JPEG data in-memory.
+            loader = gtk.gdk.PixbufLoader()
+            loader.write(self.key_info['data'])
+            loader.close()
 
-        self.reset_zoom()
+            self.pixbuf = loader.get_pixbuf()
+
+            loader = None
+            gc.collect()
+
+            self.reset_zoom()
 
         self.area.queue_draw()
         
@@ -108,16 +153,13 @@ class YayBeeSee(sugar.activity.activity.Activity):
         self.py = 0.0
         self.vx = random.random() * 0.02 - 0.01
         self.vy = random.random() * 0.02 - 0.01
-        
-    def idle_cb(self):
+
+    def play_zoom(self):
         self.zoom += 0.001
         self.px += self.vx
         self.py += self.vy
-
         self.area.queue_draw()
- 
-        return True
-    
+        
     def expose_cb(self, widget, event):
         cr = widget.window.cairo_create()
         cr.rectangle(event.area.x, event.area.y, event.area.width, event.area.height)
@@ -171,26 +213,43 @@ class YayBeeSee(sugar.activity.activity.Activity):
             
             x_bearing, y_bearing, width, height = cr.text_extents(text)[:4]
 
+            cr.rectangle(30, bounds.height-60, width+20, height+20)
             cr.set_source_rgba(0.3, 0.3, 0.3, 0.7)
-            cr.rectangle(10, bounds.height - 60 + y_bearing, width+20, height+20)
             cr.fill_preserve()
             cr.set_source_rgba(1, 1, 1, 0.7)
             cr.stroke()
             
             cr.set_source_rgb(0.7, 0.7, 0.7)
-            cr.move_to(20, bounds.height - 50)
+            cr.move_to(40, bounds.height-50 - y_bearing)
             cr.show_text(text)
 
         else:
 
+            loaded_count = 0
+            total_count = 0
+            for key in self.index: 
+                if self.index[key].has_key('data'):
+                    loaded_count += 1
+                total_count += 1
+
+            loaded_ratio = float(loaded_count) / float(total_count)
+
+            # Draw loading bar.
+            cr.rectangle(bounds.width-30, bounds.height-60, -int((bounds.width-140) * loaded_ratio), 40)
+            cr.set_source_rgb(0.4, 0.4, 0.8)
+            cr.fill_preserve()
+            cr.set_source_rgb(0.6, 0.6, 0.9)
+            cr.stroke()
+
             # Draw help text.
             text = _('Welcome! Press any letter or number.')
-            
-            cr.set_source_rgb(1, 1, 1)
+              
+            help_alpha = max(0, min(1, (loaded_ratio-0.8)/0.2))
+            cr.set_source_rgba(1, 1, 1, help_alpha)
             
             cr.set_font_size(20)
             x_bearing, y_bearing, width, height = cr.text_extents(text)[:4]
             
-            cr.move_to(bounds.width - width - 30 - x_bearing, bounds.height - 300 - y_bearing)
+            cr.move_to(bounds.width-40 - width - x_bearing, bounds.height-50 - y_bearing)
             cr.show_text(text)
-            
+           
