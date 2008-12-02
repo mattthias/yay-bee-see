@@ -41,7 +41,7 @@ class YayBeeSee(sugar.activity.activity.Activity):
         self.area = gtk.DrawingArea()
         self.area.connect('expose-event', self.expose_cb)
         
-        self.area.modify_bg(gtk.STATE_NORMAL, self.get_colormap().alloc_color('#ffffff'))
+        self.area.modify_bg(gtk.STATE_NORMAL, self.get_colormap().alloc_color('#808080'))
         
         self.key = None
         self.key_info = None
@@ -51,6 +51,14 @@ class YayBeeSee(sugar.activity.activity.Activity):
         tbox = sugar.activity.activity.ActivityToolbox(self)
         self.set_toolbox(tbox)
         
+        fullscreenbtn = sugar.graphics.toolbutton.ToolButton('view-fullscreen')
+        fullscreenbtn.set_tooltip(_("Fullscreen"))
+        fullscreenbtn.connect('clicked', self.fullscreen_cb)
+
+        activity_toolbar = tbox.get_activity_toolbar()
+        share_idx = activity_toolbar.get_item_index(activity_toolbar.share) 
+        activity_toolbar.insert(fullscreenbtn, share_idx)
+
         # Load the image index for the current locale.
         bundle = sugar.activity.activity.get_bundle_path()
         code = locale.getlocale(locale.LC_ALL)[0]
@@ -62,7 +70,6 @@ class YayBeeSee(sugar.activity.activity.Activity):
         self.show_all()
         
         # Hide the sharing button from the activity toolbar since we don't support it (yet). 
-        activity_toolbar = tbox.get_activity_toolbar()
         activity_toolbar.share.props.visible = False
         
         # Set up key events.
@@ -72,6 +79,9 @@ class YayBeeSee(sugar.activity.activity.Activity):
         # Set up the 'Ken Burns' timer.
         self.reset_zoom()
         #gobject.idle_add(self.idle_cb)
+
+    def fullscreen_cb(self, widget):
+        self.fullscreen()
 
     def key_press_cb(self, widget, event):
         # Get the letter corresponding to the keypress.
