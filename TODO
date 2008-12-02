@@ -1,7 +1,7 @@
 YayBeeSee
 
 Future
-+ Ken Burns effect on photos.  Slowly zoom in and pan.
-+ Store all the JPEGs in memory as file images.  Find a way to load the JPEG from memory and transfer into a Pixbuf.
++ Ken Burns effect on photos.  Slowly zoom in and pan.  Need to find a way to make it fast enough.
+- Store all the JPEGs in memory as file images.  Find a way to load the JPEG from memory and transfer into a Pixbuf.
 + Add a voice saying the letter and the word when the key is pressed.
 + Display the image license (currently it's just located in the INDEX file).
