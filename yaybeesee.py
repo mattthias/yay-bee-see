@@ -132,20 +132,18 @@ class YayBeeSee(sugar.activity.activity.Activity):
             # Scale the image such that it fills the screen while preserving the aspect ratio.
             # Using 'min' here shows the entire image, 'max' fills the screen.
             # It might be nice to be able to choose 'fill' or 'fit' mode per-image.
-            ratio = max(
+            ratio = min(
                 float(bounds.width) / float(self.pixbuf.get_width()),
                 float(bounds.height) / float(self.pixbuf.get_height()))
 
+            ratio = ratio * self.zoom
+
             cr.translate(
-                (bounds.width - self.pixbuf.get_width()*ratio) / 2,
-                (bounds.height - self.pixbuf.get_height()*ratio) / 2)
+                self.px + (bounds.width - self.pixbuf.get_width()*ratio) / 2,
+                self.py + (bounds.height - self.pixbuf.get_height()*ratio) / 2)
             
             cr.scale(ratio, ratio)
             
-            # Apply 'Ken Burns' effect.
-            cr.translate(self.px, self.py)
-            cr.scale(self.zoom, self.zoom)
-
             cr.set_source_pixbuf(self.pixbuf, 0, 0)
             cr.paint()
             
@@ -188,11 +186,11 @@ class YayBeeSee(sugar.activity.activity.Activity):
             # Draw help text.
             text = _('Welcome! Press any letter or number.')
             
-            cr.set_source_rgb(0.5, 0.5, 0.5)
+            cr.set_source_rgb(1, 1, 1)
             
             cr.set_font_size(20)
             x_bearing, y_bearing, width, height = cr.text_extents(text)[:4]
             
-            cr.move_to(bounds.width - width/2 - 300, bounds.height - 300)
+            cr.move_to(bounds.width - width - 30 - x_bearing, bounds.height - 300 - y_bearing)
             cr.show_text(text)
             

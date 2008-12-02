@@ -160,7 +160,7 @@
     "url": "http://commons.wikimedia.org/wiki/Image:Turtles_Costa_Rica.jpg"
   },
   "u": {
-    "color": [128, 128, 128],
+    "color": [128, 90, 128],
     "file": "images/u.jpg",
     "description": "Yellow beach umbrella in the summer sun",
     "author": "Molku",
@@ -272,7 +272,7 @@
     "url": "http://commons.wikimedia.org/wiki/Image:Septem-artes-liberales_Herrad-von-Landsberg_Hortus-deliciarum_1180.jpg"
   },
   "8": {
-    "color": [128, 128, 128],
+    "color": [0, 255, 0],
     "file": "images/8.jpg",
     "description": "Eight varieties of pears from U.S. markets",
     "author": "Agyle",
