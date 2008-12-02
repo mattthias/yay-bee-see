@@ -1,9 +1,10 @@
-yay-bee-see-olpc.zip
-yaybeesee.py
+activity/Colors-activity.svg
+activity/activity.info
 COPYING
 TODO
 setup.py
-images/yay-bee-see.html
+yaybeesee.py
+images/INDEX.en_US
 images/u.jpg
 images/2.jpg
 images/a.jpg
@@ -41,5 +42,4 @@ images/s.jpg
 images/e.jpg
 images/g.jpg
 images/p.jpg
-activity/Colors-activity.svg
-activity/activity.info
+po/Yay!BeeSee.pot
